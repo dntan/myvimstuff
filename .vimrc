@@ -11,16 +11,22 @@ inoremap <expr> <CR> pumvisible() ? "<C-y>" :"<CR>"
 " Cancel the complete menu item like CTRL+e would.
 inoremap <expr> <Left> pumvisible() ? "<C-e>" : "<Left>"
 
+" Don't select line numbers when copying.
+set mouse+=a
 
+" save undo,undo and swapfiles in folders
+set directory=~/.vim/swapfiles/
+set undodir=~/.vim/undo/     
+set backupdir=~/.vim/backup/
 
 "vimPolygot
 set nocompatible
 
 "NERDTree
-autocmd VimEnter * NERDTree
+"autocmd VimEnter * NERDTree
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree")
      \ && b:NERDTree.isTabTree()) | q | endif
-nnoremap <leader>n :NERDTreeFocus<CR>
+noremap <leader>n :NERDTreeFocus<CR>
 nnoremap <C-n> :NERDTree<CR>
 nnoremap <C-t> :NERDTreeToggle<CR>
 nnoremap <C-f> :NERDTreeFind<CR>
@@ -102,6 +108,7 @@ call plug#end()
 "Danny Vim Settings
 set number
 set wrap
+set nobackup
 
 " An example for a vimrc file.
 "
